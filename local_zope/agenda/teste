@@ -1,0 +1,11 @@
+<html>
+  <head><title>teste</title>
+  </head>
+  <body bgcolor="#FFFFFF">
+    <h2>teste</h2>
+<p>
+<dtml-call "REQUEST.set('senha',acesso('123456789'))">
+<dtml-var senha>
+</p>
+</body>
+</html>
