@@ -3,7 +3,7 @@ CREATE SEQUENCE id_usuario_seq
   INCREMENT 1
   MINVALUE 1
   MAXVALUE 29000000
-  START 4
+  START 1
   CACHE 1;
 ALTER TABLE id_usuario_seq
   OWNER TO postgres;
@@ -14,7 +14,7 @@ CREATE SEQUENCE tipo_usuario_seq
   INCREMENT 1
   MINVALUE 1
   MAXVALUE 2900000
-  START 3
+  START 1
   CACHE 1;
 ALTER TABLE tipo_usuario_seq
   OWNER TO postgres;
@@ -76,6 +76,8 @@ CREATE TABLE usuarios
   senha character varying(40) NOT NULL,
   id_tipo_usuario smallint NOT NULL,
   data_insercao timestamp without time zone DEFAULT now(),
+  logado boolean NOT NULL DEFAULT false,
+  ip_login character varying(16),
   CONSTRAINT usuarios_pkey PRIMARY KEY (id_usuario),
   CONSTRAINT tipo_usuario FOREIGN KEY (id_tipo_usuario)
       REFERENCES tipo_usuarios (id_tipo_usuario) MATCH SIMPLE
