@@ -1,10 +1,32 @@
 <html>
-<head>
-   <title>agenda</title>
-</head>
-<body>
-    <center>
-        <b>agenda</b>
-    </center>
-</body>
+    <head>
+        <title>Login agenda</title>
+    </head>
+    <style type="text/css">
+        .box {
+            width:400px;
+            height:200px;
+            background-color:#001F7A;
+            position:fixed;
+            margin-left:-200px; /* half of width */
+            margin-top:-100px;  /* half of height */
+            top:50%;
+            left:50%;
+        }
+    </style>
+    <form name="login" action="acessar_sistema">
+        <table class="box">
+            <tr>
+                <th><font color="white" style="font-weight: bold">E-MAIL:</font></th>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <th><font color="white" style="font-weight: bold">SENHA:</font></th>
+                <td><input type="password" name="senha"></td>
+            </tr>
+            <tr>
+                <td><center><input type="submit" value="Sign In"></center></td>
+            </tr>
+        </table>
+    </form>
 </html>
