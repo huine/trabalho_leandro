@@ -94,7 +94,7 @@ class Usuario(SimpleItem):
 
     def logout(self):
         """ Subtrai 1 da quantidade de logins e retorna o novo
-            número. Se sobrou 0 login o usuario eh deslogado. """
+            numero. Se sobrou 0 login o usuario eh deslogado. """
         self._status_login = False
 
         return 0
