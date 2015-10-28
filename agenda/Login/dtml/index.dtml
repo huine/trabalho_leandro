@@ -14,7 +14,7 @@
             left:50%;
         }
     </style>
-    <form name="login" action="inicia_processo_login" method="post">
+    <form name="login" action="acesso/verifica_dados_form" method="post">
         <table class="box">
             <tr>
                 <th><font color="white" style="font-weight: bold">E-MAIL:</font></th>

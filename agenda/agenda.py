@@ -10,13 +10,13 @@ class Agenda(SimpleItem):
 
     """
 
-    acesso = Acesso()
+    acesso = Acesso('acesso')
 
     meta_type = 'Agenda'
 
     manage_options = (
-                {'label': 'View', 'action': 'inicia_processo_login'},
-        )
+        {'label': 'View', 'action': 'inicia_processo_login'},
+    )
 
     def __init__(self, id, connection):
         """ Initialize """
@@ -32,13 +32,11 @@ class Agenda(SimpleItem):
         return self.acesso.pg_login()
 
 
-
-def manage_addAgenda(self, id, connection, RESPONSE):
+def manage_add_agenda(self, id, connection, RESPONSE):
     """Add Agenda to a folder."""
     conn = getattr(self, connection)
     self._setObject(id, Agenda(id, conn))
     RESPONSE.redirect(id + '/index_html')
-
 
 
 a = globals()

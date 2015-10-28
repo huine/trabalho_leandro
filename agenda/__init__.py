@@ -7,7 +7,7 @@ def initialize(context):
         agenda.Agenda,
         constructors=(
             agenda.manage_addAgendaForm,
-            agenda.manage_addAgenda,
+            agenda.manage_add_agenda,
         ),
         icon = 'imagens/icon2.png'
     )
