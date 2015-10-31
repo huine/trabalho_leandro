@@ -2,6 +2,7 @@ from OFS.SimpleItem import SimpleItem
 from Globals import DTMLFile
 from Products.ZPsycopgDA.DA import Connection
 from Products.agenda.Login.Acesso import Acesso
+from Products.agenda.UI.ui import Ui
 
 
 class Agenda(SimpleItem):
@@ -10,12 +11,13 @@ class Agenda(SimpleItem):
 
     """
 
-    acesso = Acesso('acesso')
+    acesso = Acesso()
+    main_page = Ui()
 
     meta_type = 'Agenda'
 
     manage_options = (
-        {'label': 'View', 'action': 'inicia_processo_login'},
+        {'label': 'View', 'action': 'login'},
     )
 
     def __init__(self, id, connection):
@@ -27,9 +29,9 @@ class Agenda(SimpleItem):
         """Database Connection"""
         return self.connection
 
-    def inicia_processo_login(self):
-        """Inicia o processo de login"""
-        return self.acesso.pg_login()
+    def login(self):
+        """redireciona para a pagina de login"""
+        return self.REQUEST.RESPONSE.redirect('/agenda/acesso/index_html')
 
 
 def manage_add_agenda(self, id, connection, RESPONSE):

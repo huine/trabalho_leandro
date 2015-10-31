@@ -1,1 +1,4 @@
 <p>BEM VINDO!!!!</p>
+<form name="teste" action="deslogar" method="post">
+    <input type="submit" value="deslogar">
+</form>

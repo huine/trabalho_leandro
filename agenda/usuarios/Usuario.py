@@ -14,7 +14,9 @@ class Usuarios(SimpleItem):
 
     meta_type = 'Usuarios'
 
-    def obter_usuario(self, id_usuario=None, email="", tipo_usuario=None):
+    def obter_usuario(self, id_usuario=None, email="", tipo_usuario=None,
+                      logado=False, ip_login=""):
+
         r = self._zsql_sel_usuarios(
             id_usuario=id_usuario, email=email)
         if len(r):
@@ -40,10 +42,40 @@ class Usuarios(SimpleItem):
     def get_by_id(self, id_usuario):
         return self.obter_usuario(id_usuario=id_usuario)
 
+    def logar_usuario(self, id_usuario, hash_log):
+        """loga o usuario no BD"""
+        try:
+            self._zsql_logar_usuario(id_usuario=id_usuario,
+                                     ip_login=self.REQUEST['REMOTE_ADDR'],
+                                     hash=hash_log)
+        except:
+            return False
+        return True
+
+    def deslogar_usuario(self, id_usuario):
+        try:
+            self._zsql_deslogar_usuario(id_usuario=id_usuario)
+        except:
+            return False
+
+        return True
+
     _zsql_sel_usuarios = SQL(
         id='zsql_sel_usuarios', title='', connection_id='connection',
         arguments='id_usuario\nemail', template=open(
             product_path + 'sql/zsql_sel_usuario.sql').read()
+    )
+
+    _zsql_logar_usuario = SQL(
+        id='zsql_logar_usuario', title='', connection_id='connection',
+        arguments='id_usuario\nip_login\nhash', template=open(
+            product_path + 'sql/zsql_logar_usuario.sql').read()
+    )
+
+    _zsql_deslogar_usuario = SQL(
+        id='zsql_deslogar_usuario', title='', connection_id='connection',
+        arguments='id_usuario', template=open(
+            product_path + 'sql/zsql_deslogar_usuario.sql').read()
     )
 
 
@@ -66,8 +98,8 @@ class Usuario(SimpleItem):
         self._id = id
         self._email = email
         self._tipo_usuario = tipo_usuario
-        self._logado = False
-        self._ip_login = ""
+        self._logado = logado
+        self._ip_login = ip_login
 
     @classmethod
     def from_dict(cls, data):
@@ -94,11 +126,8 @@ class Usuario(SimpleItem):
         self._ip_login = ip
 
     def logout(self):
-        """ Subtrai 1 da quantidade de logins e retorna o novo
-            numero. Se sobrou 0 login o usuario eh deslogado. """
-        self._status_login = False
-
-        return 0
+        """ desloga o usuario """
+        self._logado = False
 
     def get_login(self):
         return self._email
