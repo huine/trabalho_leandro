@@ -1,0 +1,31 @@
+
+<div id="addLista" class="modal">
+
+    <div class="modal-content">
+	
+		<div class="row">
+			
+			 <form class="col s12" >
+				<span class="col s1 offset-s11">
+					<a href="#!" class="modal-action modal-close"><i class="material-icons small">close</i></a>
+				</span>
+				<br>
+
+			  <div class="row">
+			  	<h3 class="col s12"> Adicionar nova lista </h3>
+			  	<br>
+				<div class="input-field col s12">
+				  <input placeholder="Titulo" id="titulo" type="text" class="validate" name="titulo">
+				  <label for="titulo">Titulo</label>
+				</div>
+			
+			  </div>
+		 
+		</div>
+	</div>
+	<div class="modal-footer">
+	  <button type="submit" class=" waves-effect waves-green btn-flat">Criar</button>
+	</div>
+	</form>
+	
+  </div>
