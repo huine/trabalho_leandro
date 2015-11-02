@@ -14,6 +14,12 @@ class Agenda(SimpleItem):
     acesso = Acesso()
     main_page = Ui()
 
+    # padrao para todas as paginas
+    header = DTMLFile('dtml/header', globals())
+    footer = DTMLFile('dtml/footer', globals())
+    css_header = DTMLFile('dtml/css/materialize.css', globals())
+    materialize_js = DTMLFile('dtml/js/materialize.js', globals())
+
     meta_type = 'Agenda'
 
     manage_options = (

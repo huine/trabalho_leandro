@@ -52,3 +52,8 @@ class Ui(SimpleItem):
         self.REQUEST.RESPONSE.redirect('/agenda/acesso/index_html')
 
     main_html = DTMLFile('dtml/main', globals())
+    add_card_modal = DTMLFile('dtml/add_card_modal', globals())
+    add_lista_modal = DTMLFile('dtml/add_lista_modal', globals())
+    card_div = DTMLFile('dtml/card_div', globals())
+    card_info_modal = DTMLFile('dtml/card_info_modal', globals())
+    lista_div = DTMLFile('dtml/lista_div', globals())

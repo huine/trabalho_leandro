@@ -92,4 +92,5 @@ class Acesso(SimpleItem):
         return self._erro()
 
     index_html = DTMLFile('dtml/index', globals())
+    login_box = DTMLFile('dtml/login_box', globals())
     _erro = DTMLFile('dtml/error', globals())
