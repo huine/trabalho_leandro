@@ -1,9 +1,0 @@
-<dtml-var "/dtml/header">
-
-<main>
-
-<dtml-var login-box>
-
-</main>
-
-<dtml-var footer>
