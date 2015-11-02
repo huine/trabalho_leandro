@@ -1,0 +1,11 @@
+<div class="col s12 m6 l2">
+	<div class="card-panel blue hoverable ">
+		<!-- href=id unico do modal de info do card !-->
+		<a class="modal-trigger" href="#card">
+					
+			<span class="white-text"><<center><b>Titulo do card</b><br>Data</center>
+			</span>
+						
+		</a>
+	</div>
+</div>
