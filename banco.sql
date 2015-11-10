@@ -52,6 +52,16 @@ CREATE SEQUENCE id_lista_seq
 ALTER TABLE id_lista_seq
   OWNER TO postgres;
 
+-- sequence login
+CREATE SEQUENCE id_login_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 29000000
+  START 1
+  CACHE 1;
+ALTER TABLE id_login_seq
+  OWNER TO postgres;
+
 
 --tabela tipo usuario
 CREATE TABLE tipo_usuarios
@@ -73,7 +83,7 @@ CREATE TABLE usuarios
 (
   id_usuario integer NOT NULL DEFAULT nextval('id_usuario_seq'::regclass),
   email character varying(100) NOT NULL,
-  senha character varying(40) NOT NULL,
+  senha character varying(75) NOT NULL,
   id_tipo_usuario smallint NOT NULL,
   data_insercao timestamp without time zone DEFAULT now(),
   logado boolean NOT NULL DEFAULT false,
@@ -158,3 +168,22 @@ WITH (
 ALTER TABLE eventos
   OWNER TO postgres;
 
+-- tabela de logins
+CREATE TABLE login
+(
+  id_login integer NOT NULL DEFAULT nextval('id_login_seq'::regclass),
+  hora_login time without time zone DEFAULT ('now'::text)::time with time zone,
+  data_login date DEFAULT ('now'::text)::date,
+  ip_login character varying(16),
+  hash_login character varying(40),
+  id_usuario_login integer,
+  CONSTRAINT login_pkey PRIMARY KEY (id_login),
+  CONSTRAINT id_usuario_fk FOREIGN KEY (id_usuario_login)
+      REFERENCES usuarios (id_usuario) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE login
+  OWNER TO postgres;
