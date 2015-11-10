@@ -1,4 +1,4 @@
-<form name="form" action="manage_addAgenda" method="post">
+<form name="form" action="manage_add_genda" method="post">
    <p>Adicionar controlador:</p>
    <p>ID: <input type="text" name="id" value=""></p>
    <p>

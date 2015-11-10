@@ -1,0 +1,82 @@
+
+<dtml-var header>
+
+
+<!-- modais necessarios para a pagina !-->
+
+
+
+		
+<dtml-if expr="eventoList[0]!=None">
+	<dtml-in expr="eventoList[0]" mapping>
+ 
+		<dtml-var card_info_modal>
+
+	</dtml-in>
+</dtml-if>
+
+
+<!-- para cada card de cada lista, um modal contendo as infos dele !-->
+
+
+
+<dtml-var add_card_modal>
+
+
+<!--
+<dtml-if expr="erro[0]!=None">
+
+	<dtml-in evento mapping>
+		<dtml-var id_evento>
+		<dtml-var titulo_evento>
+		<dtml-var data_inicio> 
+	</dtml-in>
+
+</dtml-if> 
+!-->
+
+<main>
+
+	<br>
+
+	<div class="container">
+	  <div class="row">
+	    <div class="col s10 m11">
+	      	<ul class="tabs">
+		      	<!-- um <li> para cada lista existente href=id da lista !-->
+		        <li class="tab col s3"><a href="#test1">Lista 1 </a> </li>
+			</ul>
+	    </div>
+		<span class="s1">
+			<a class="btn-floating  waves-effect waves-light red modal-trigger" href="#add">
+				<i class="material-icons">add</i>
+			</a>
+		</span> 
+
+	  </div>
+	</div>
+
+ 
+
+
+<!--- LISTA -->
+<div class="row">
+	
+    <!-- um div para cada lista, contendo seus respectivos cards !-->
+   
+
+    <dtml-var lista_div>
+    
+</div>
+
+
+
+<form name="teste" action="deslogar" method="post">
+    <input type="submit" value="deslogar">
+</form>
+
+<dtml-var footer>
+
+
+
+

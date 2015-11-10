@@ -1,6 +1,6 @@
 <!-- id precisa ser unica !-->
 
-<div id="card" class="modal">
+<div id="cardinfo<dtml-var id_evento>" class="modal">
 
     <div class="modal-content">
 		<span class="col s1 offset-s11">
@@ -9,7 +9,11 @@
 
 		<br>
 		<!-- conteudo !-->
-		<h1> infos sobre o card </h1>
+		<center><h3> <dtml-var titulo_evento> </h1></center><br>
+		<h4> Data inicio : <dtml-var data_inicio> </h4><br>
+		<h4> Data fim : <dtml-var data_fim> </h4><br>
+		<h4> Descrição :<br> <dtml-var descricao> </h4><br>
+		
 		
 	</div>
 </div>

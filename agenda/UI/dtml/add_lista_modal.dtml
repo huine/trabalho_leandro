@@ -5,9 +5,9 @@
 	
 		<div class="row">
 			
-			 <form class="col s12" >
+			 <form class="col s12" method="POST" href="valida_lista" >
 				<span class="col s1 offset-s11">
-					<a href="#!" class="modal-action modal-close"><i class="material-icons small">close</i></a>
+					<a href="" class="modal-action modal-close"><i class="material-icons small">close</i></a>
 				</span>
 				<br>
 
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-	  <button type="submit" class=" waves-effect waves-green btn-flat">Criar</button>
+	   <button class="btn waves-effect waves-light" type="submit" name="action">Criar</button>
 	</div>
 	</form>
 	

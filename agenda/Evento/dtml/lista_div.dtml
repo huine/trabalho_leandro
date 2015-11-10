@@ -1,0 +1,34 @@
+<!-- id deve ser unica !-->
+<div id="test1" class="col s12">
+
+		<div class="divider"></div>
+		<br>
+		<h5 class="blue-text">Nome da lista</h5><br>
+
+		<div class="row">
+
+			<!-- cards adicionados dinamicamente !-->
+
+
+		
+		<dtml-if expr="eventoList[0]!=None">
+			<dtml-in expr="eventoList[0]" mapping>
+ 
+				<dtml-var card_div>
+
+			</dtml-in>
+		</dtml-if>
+
+		
+			<!-- href=id do modal add_card_modal !-->
+			<div class="col s12 m6 l2">
+				<div class="card-panel blue hoverable ">
+				<a class="modal-trigger" href="#card">
+				  <center><a class="center btn-floating  waves-effect waves-light purple modal-trigger" href="#addCard"><i class="material-icons">add</i></a><br></center>
+				</a>
+				</div>
+			</div>
+				
+			
+		</div>
+	</div>

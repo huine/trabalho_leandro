@@ -1,0 +1,16 @@
+<dtml-var "get_u()">
+
+<dtml-in "get_u()" >
+	<dtml-if sequence-start>
+		a
+	</dtml-if>
+
+		<dtml-var get_titulo>
+
+	<dtml-if sequence-end>
+		c
+	</dtml-if>
+
+	<dtml-else>
+	d
+</dtml-in>

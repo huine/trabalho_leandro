@@ -1,9 +1,9 @@
-<link href="css_header" type="text/css" rel="stylesheet" media="screen,projection"/>
-<script type="text/javascript" src="materialize_js"></script>
+
 
 <dtml-var header>
 
 <main>
+
 
 <dtml-var login_box>
 

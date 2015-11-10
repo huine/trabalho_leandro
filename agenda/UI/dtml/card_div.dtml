@@ -1,9 +1,12 @@
+
+<dtml-var card_info_modal>
+
 <div class="col s12 m6 l2">
 	<div class="card-panel blue hoverable ">
 		<!-- href=id unico do modal de info do card !-->
-		<a class="modal-trigger" href="#card">
+		<a class="modal-trigger" href="#cardinfo<dtml-var id_evento>">
 					
-			<span class="white-text"><<center><b>Titulo do card</b><br>Data</center>
+			<span class="white-text"><center><b><dtml-var titulo_evento></b><br><dtml-var data_inicio></center>
 			</span>
 						
 		</a>

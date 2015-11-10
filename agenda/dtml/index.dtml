@@ -1,6 +1,7 @@
-<dtml-var "/dtml/header">
+<dtml-var header>
 
 <main>
+
 
 <dtml-var login-box>
 

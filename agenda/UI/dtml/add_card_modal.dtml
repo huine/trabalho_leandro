@@ -1,24 +1,50 @@
 <!-- id deve ser unica para cada lista !-->
-<div id="addCard" class="modal">
+<div id="addCard<dtml-var get_id>" class="modal">
 
     <div class="modal-content">
 	
 		<div class="row">
 			
 			 <form class="col s12" >
+			 	<input type="hidden" id="id" value="<dtml-var get_id>">
 				<span class="col s1 offset-s11">
 					<a href="#!" class="modal-action modal-close"><i class="material-icons small">close</i></a>
 				</span>
 				<br>
 
 			  <div class="row">
-			  	<h3 class="col s12"> Adicionar novo card a ____ </h3>
+			  	<h3 class="col s12"> Adicionar novo card a <dtml-var get_titulo> </h3>
 			  	<br>
 				<div class="input-field col s12">
 				  <input placeholder="Titulo" id="titulo" type="text" class="validate" name="titulo">
-				  <label for="titulo">Titulo</label>
+				  <label for="titulo">Título do evento</label>
 				</div>
-			
+				<div class="input-field col s6">
+			    <select>
+			      <option value="" disabled selected>Prioridade</option>
+			      <option value="3">Urgente</option>
+			      <option value="2">Razoável</option>
+			      <option value="1">Sem Urgência</option>
+			    </select>
+			    <label>Prioridade</label>
+			  </div>
+			  <div class="input-field col s6">
+				  <input placeholder="Local" id="local" type="text" class="validate" name="local">
+				  <label for="local">Local do evento</label>
+				</div>
+			</div>
+			  <div class="row">
+			  	<div class="col s6">
+	  				<label for="datainicio">Data Inicio:</label>
+
+	  				<input id="datainicio" name="datainicio" type="date" class="datepicker validate">
+				</div>
+
+			  	<div class="col s6">
+	  				<label for="datafim">Data Fim:</label>
+	  				<input id="datafim" name="datafim" type="date" class="datepicker validate">
+					
+			  	</div>
 			  </div>
 		 
 		</div>

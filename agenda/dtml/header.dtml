@@ -7,29 +7,62 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
+<link href="style_css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="materialize_css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 <body>
 
 <div class="page-flexbox-wrapper">
 <header>
+  <ul id="dropdown1" class="dropdown-content">
+  <li><a href="">Perfil</a></li>
+  <li class="divider"></li>
+  <li><a href="" >Configurações</a></li>
+  <li class="divider"></li>
+  <li><a href="../agenda/logoff">Deslogar</a></li>
+</ul>
+
   <nav class="green" role="navigation">
     <div class="nav-wrapper container ">
 	
 		<a id="logo-container" href="#" class="brand-logo center">
 			<img class="valign" style="margin:10px;max-height:45px;" src="images/logo.png">
 		</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li ><a href="#">Navbar Link</a></li>
-		
-      </ul>
-	  
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
+    <dtml-if esta_logado>
+      <div class="col s6 valign-wrapper right">
+      <a class="hide-on-med-and-down" href="#!"><img src="images/yuna.jpg" class="hide-on-med-and-downresponsive-img circle valign" style="max-height: 50px;"></a>
+        <ul class="right hide-on-med-and-down ">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1" data-constrainwidth="false" data-
+          beloworigin="true">usuario<i class="material-icons right">arrow_drop_down</i></a></li>
+        
+        </ul>
+      </div>
+        <ul id="nav-mobile" class="side-nav">
+        
+        <li class="valign-wrapper black-text" style="height: 100px;width:100%"> <img src="images/yuna.jpg" class="responsive-img circle valign" style="max-height: 60px;"><p>usuario</p></a></li>
+        <li class="divider"></li>
+        <li><a href="">Minhas Listas</a></li>
+       
+         <li class="divider"></li>
+        <li ><a href="../agenda/logoff">Deslogar</a></li>
+        
+        </ul>
+  	  
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+   
+    <dtml-else>
+      <div class="col s6 valign-wrapper right">
+      <ul >
+        
+        
+        <li><a href="../login">Login</a></li>
+       </ul>
+      </div>
+    </dtml-if>
   </nav>
 <br>
 </header>

@@ -57,13 +57,13 @@ class Session(SimpleItem):
 
     #     return qtde_login
 
-    # def estaLogado(self):
-    #     """
-    #     Metodo para verificar se um usuario esta logado
-    #     """
+    def estaLogado(self):
+        """
+        Metodo para verificar se um usuario esta logado
+        """
 
-    #     SESSION = self.REQUEST.SESSION
+        SESSION = self.REQUEST.SESSION
 
-    #     if len(SESSION.keys()) == 0 or not SESSION['33']:
-    #         return False
-    #     return True
+        if len(SESSION.keys()) == 0 or not SESSION['logado']:
+            return False
+        return True
