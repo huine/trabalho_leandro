@@ -1,5 +1,5 @@
 <!-- id precisa ser unica !-->
-
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 <div id="cardinfo<dtml-var id_evento>" class="modal">
 
     <div class="modal-content">
@@ -12,7 +12,7 @@
 		<center><h3> <dtml-var titulo_evento> </h1></center><br>
 		<h4> Data inicio : <dtml-var data_inicio> </h4><br>
 		<h4> Data fim : <dtml-var data_fim> </h4><br>
-		<h4> DescriÃ§Ã£o :<br> <dtml-var descricao> </h4><br>
+		<h4> Descrição :<br> <dtml-var descricao> </h4><br>
 		
 		
 	</div>

@@ -1,11 +1,12 @@
 <!-- id deve ser unica para cada lista !-->
 <div id="addCard<dtml-var get_id>" class="modal">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 
     <div class="modal-content">
 	
 		<div class="row">
 			
-			 <form class="col s12" >
+			 <form class="col s12" action="teste" method="post">
 			 	<input type="hidden" id="id" value="<dtml-var get_id>">
 				<span class="col s1 offset-s11">
 					<a href="#!" class="modal-action modal-close"><i class="material-icons small">close</i></a>
@@ -17,14 +18,14 @@
 			  	<br>
 				<div class="input-field col s12">
 				  <input placeholder="Titulo" id="titulo" type="text" class="validate" name="titulo">
-				  <label for="titulo">TÃ­tulo do evento</label>
+				  <label for="titulo">Título do evento</label>
 				</div>
 				<div class="input-field col s6">
 			    <select>
 			      <option value="" disabled selected>Prioridade</option>
 			      <option value="3">Urgente</option>
-			      <option value="2">RazoÃ¡vel</option>
-			      <option value="1">Sem UrgÃªncia</option>
+			      <option value="2">Razoável</option>
+			      <option value="1">Sem Urgência</option>
 			    </select>
 			    <label>Prioridade</label>
 			  </div>
