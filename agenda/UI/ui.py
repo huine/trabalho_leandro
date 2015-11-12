@@ -30,6 +30,9 @@ class Ui(SimpleItem):
     def esta_logado(self):
         return self.session.estaLogado()
 
+    def user_name(self):
+        return self.REQUEST.SESSION['nome_usuario']
+
     def index_html(self):
         """retorna a pagina principal da agenda"""
 
@@ -53,7 +56,10 @@ class Ui(SimpleItem):
     """
 
     def get_listas_usuario(self):
-        listas = self.lista.get_listas_by_usuario(18)
+        if not self.esta_logado():
+            return []
+
+        listas = self.lista.get_listas_by_usuario(self.session.user_id())
 
         if listas is None:
             return []
@@ -85,24 +91,55 @@ class Ui(SimpleItem):
         return self._erro()
 
     def valida_lista(self, dados=None):
-        """faz a verificacao dos dados inseridos no form de login"""
+        """faz a verificacao dos dados inseridos no form de add_lista"""
 
-        return self.REQUEST
         if not dados:
             dados = self.REQUEST.form
 
-        # if not self.session.estaLogado():
-        #    return self.prepara_erro({'erro': ' usuario nao logado'})
+        if not self.session.estaLogado():
+            return self.prepara_erro({'erro': ' usuario nao logado'})
 
-        id_usuario = 18  # self.REQUEST.SESSION['id_usuario']
+        id_usuario = self.REQUEST.SESSION['id_usuario']
+
         try:
             titulo = dados['titulo']
         except:
-            return self.prepara_erro({'erro': 'erro'})
+            return self.prepara_erro({'erro': 'dados nao colocados'})
 
         self.lista.add_lista(id_usuario=id_usuario, titulo=titulo)
 
-        return self.REQUEST.RESPONSE.redirect('/agenda/login/')
+        return self.REQUEST.RESPONSE.redirect('/agenda/main_page/')
+
+    def valida_evento(self, dados=None):
+        """faz a verificacao dos dados inseridos no form de add_evento"""
+
+        if not dados:
+            dados = self.REQUEST.form
+
+        if not self.session.estaLogado():
+            return self.prepara_erro({'erro': ' usuario nao logado'})
+
+        id_usuario = self.REQUEST.SESSION['id_usuario']
+
+        try:
+            titulo = dados['titulo']
+            id_lista = int(dados['id'])
+            data_inicio = dados['data_inicio']
+            data_fim = dados['data_fim']
+            descricao = dados['descricao']
+            prioridade = int(dados['prioridade'])
+            local = dados['local']
+        except:
+            return self.prepara_erro({'erro': 'dados nao colocados'})
+
+        if not self.lista.valida_relacao_lista_usuario(id_usuario, id_lista):
+            return self.prepara_erro({'erro': 'nao foi possivel adicionar'})
+
+        self.evento.add_evento(id_usuario=id_usuario, id_lista=id_lista,
+                               data_inicio=data_inicio, data_fim=data_fim, descricao=descricao,
+                               local=local, titulo=titulo, prioridade=prioridade)
+
+        return self.REQUEST.RESPONSE.redirect('/agenda/main_page/')
 
     main_2 = DTMLFile('dtml/main_2', globals())
     main_html = DTMLFile('dtml/main', globals())
@@ -112,3 +149,4 @@ class Ui(SimpleItem):
     card_info_modal = DTMLFile('dtml/card_info_modal', globals())
     lista_div = DTMLFile('dtml/lista_div', globals())
     _erro = DTMLFile('../dtml/error', globals())
+    login_box = DTMLFile('../Login/dtml/login_box', globals())

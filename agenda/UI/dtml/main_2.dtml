@@ -2,6 +2,7 @@
 
 
 
+<dtml-if esta_logado>
 <main>
 <dtml-var add_lista_modal>
 
@@ -45,10 +46,16 @@
 		</dtml-if>
 
 		<dtml-else>
-		nenhuma lista
+		<center>Nenhuma lista ainda! Adicione uma no botão + </center>
 	</dtml-in>
 
 </main>
+<dtml-else>
+	<main>
+		<center>Faça login</center>
+		<dtml-var login_box>
+	</main>
+</dtml-if>
 
 
 

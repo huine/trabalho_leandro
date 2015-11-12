@@ -33,16 +33,16 @@
 		</a>
     <dtml-if esta_logado>
       <div class="col s6 valign-wrapper right">
-      <a class="hide-on-med-and-down" href="#!"><img src="images/yuna.jpg" class="hide-on-med-and-downresponsive-img circle valign" style="max-height: 50px;"></a>
+      <a class="hide-on-med-and-down" href="#!"><img src="images/profile.png" class="hide-on-med-and-downresponsive-img circle valign" style="max-height: 50px;"></a>
         <ul class="right hide-on-med-and-down ">
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1" data-constrainwidth="false" data-
-          beloworigin="true">usuario<i class="material-icons right">arrow_drop_down</i></a></li>
+          beloworigin="true"><dtml-var user_name><i class="material-icons right">arrow_drop_down</i></a></li>
         
         </ul>
       </div>
         <ul id="nav-mobile" class="side-nav">
         
-        <li class="valign-wrapper black-text" style="height: 100px;width:100%"> <img src="images/yuna.jpg" class="responsive-img circle valign" style="max-height: 60px;"><p>usuario</p></a></li>
+        <li class="valign-wrapper black-text" style="height: 100px;width:100%"> <img src="images/yuna.jpg" class="responsive-img circle valign" style="max-height: 60px;"><p><dtml-var user_name></p></a></li>
         <li class="divider"></li>
         <li><a href="">Minhas Listas</a></li>
        

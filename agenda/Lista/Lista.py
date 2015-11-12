@@ -32,6 +32,13 @@ class Listas(SimpleItem):
 
         return q
 
+    def valida_relacao_lista_usuario(self, id_usuario, id_lista):
+
+        if self.obter_listas_usuario(id_usuario, id_lista) is not None:
+            return True
+        else:
+            return False
+
     def get_listas_by_usuario(self, id_usuario):
         return self.obter_listas_usuario(id_usuario=id_usuario)
 
@@ -48,7 +55,7 @@ class Listas(SimpleItem):
     def add_lista(self, id_usuario, titulo):
         r = self._zsql_add_lista(id_usuario=int(
             id_usuario), titulo=str(titulo))
-        
+
     _zsql_busca_lista = SQL(
         id='zsql_busca_lista', title='', connection_id='connection',
         arguments='id_usuario\nid_lista', template=open(

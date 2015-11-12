@@ -6,8 +6,8 @@
 	
 		<div class="row">
 			
-			 <form class="col s12" action="teste" method="post">
-			 	<input type="hidden" id="id" value="<dtml-var get_id>">
+			 <form class="col s12" action="valida_evento" method="post">
+			 	<input type="hidden" id="id" name="id" value="<dtml-var get_id>">
 				<span class="col s1 offset-s11">
 					<a href="#!" class="modal-action modal-close"><i class="material-icons small">close</i></a>
 				</span>
@@ -21,7 +21,7 @@
 				  <label for="titulo">Título do evento</label>
 				</div>
 				<div class="input-field col s6">
-			    <select>
+			    <select id="prioridade" name="prioridade">
 			      <option value="" disabled selected>Prioridade</option>
 			      <option value="3">Urgente</option>
 			      <option value="2">Razoável</option>
@@ -36,17 +36,23 @@
 			</div>
 			  <div class="row">
 			  	<div class="col s6">
-	  				<label for="datainicio">Data Inicio:</label>
+	  				<label for="data_inicio">Data Inicio:</label>
 
-	  				<input id="datainicio" name="datainicio" type="date" class="datepicker validate">
+	  				<input id="data_inicio" name="data_inicio" type="date" class="datepicker validate">
 				</div>
 
 			  	<div class="col s6">
-	  				<label for="datafim">Data Fim:</label>
-	  				<input id="datafim" name="datafim" type="date" class="datepicker validate">
+	  				<label for="data_fim">Data Fim:</label>
+	  				<input id="data_fim" name="data_fim" type="date" class="datepicker validate">
 					
 			  	</div>
 			  </div>
+			  <div class="row">
+		          <div class="input-field col s12">
+		            <textarea id="descricao" name="descricao" class="materialize-textarea" length="120"></textarea>
+		            <label for="textarea1">Descrição:</label>
+		          </div>
+		       </div>
 		 
 		</div>
 	</div>

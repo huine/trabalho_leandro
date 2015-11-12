@@ -21,7 +21,8 @@ class Session(SimpleItem):
         SESSION.set('tipo_usuario', usuario[2])
         SESSION.set('usuario_logado', usuario[3])
         SESSION.set('ip_usuario', usuario[4])
-
+        SESSION.set('nome_usuario', usuario[5])
+        
     # def _temAsSessoes(self, sessaoIdLista):
     #     r = False
     #     SESSION = self.REQUEST.SESSION
@@ -57,6 +58,9 @@ class Session(SimpleItem):
 
     #     return qtde_login
 
+    def user_id(self):
+        return self.REQUEST.SESSION['id_usuario']
+
     def estaLogado(self):
         """
         Metodo para verificar se um usuario esta logado
@@ -64,6 +68,6 @@ class Session(SimpleItem):
 
         SESSION = self.REQUEST.SESSION
 
-        if len(SESSION.keys()) == 0 or not SESSION['logado']:
+        if len(SESSION.keys()) == 0 or not SESSION['usuario_logado']:
             return False
         return True

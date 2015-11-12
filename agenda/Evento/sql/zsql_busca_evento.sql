@@ -17,4 +17,6 @@ WHERE
 <dtml-if id_lista>
     id_lista = <dtml-sqlvar id_lista type="int">
 </dtml-if>
-;
+
+ORDER BY data_fim ASC;
+

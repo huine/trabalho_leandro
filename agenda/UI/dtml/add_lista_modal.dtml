@@ -5,7 +5,7 @@
 	
 		<div class="row">
 			
-			 <form class="col s12" method="post" action="teste" >
+			 <form class="col s12" method="post" action="valida_lista" >
 				<span class="col s1 offset-s11">
 					<a href="" class="modal-action modal-close"><i class="material-icons small">close</i></a>
 				</span>
