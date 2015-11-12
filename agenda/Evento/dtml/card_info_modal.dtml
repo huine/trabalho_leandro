@@ -1,0 +1,19 @@
+<!-- id precisa ser unica !-->
+
+<div id="card<dtml-var id_evento>" class="modal">
+
+    <div class="modal-content">
+		<span class="col s1 offset-s11">
+			<a href="#!" class="modal-action modal-close"><i class="material-icons small">close</i></a>
+		</span>
+
+		<br>
+		<!-- conteudo !-->
+		<center><h3> <dtml-var titulo_evento> </h1></center><br>
+		<h4> Data inicio : <dtml-var data_inicio> </h4><br>
+		<h4> Data fim : <dtml-var data_fim> </h4><br>
+		<h4> Descrição :<br> <dtml-var descricao> </h4><br>
+		
+		
+	</div>
+</div>

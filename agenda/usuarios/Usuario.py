@@ -94,18 +94,19 @@ class Usuario(SimpleItem):
         + Item.manage_options
     )
 
-    def __init__(self, id, email, tipo_usuario, logado=False, ip_login=""):
+    def __init__(self, id, email, tipo_usuario, nome_usuario,logado=False, ip_login=""):
         self._id = id
         self._email = email
         self._tipo_usuario = tipo_usuario
         self._logado = logado
         self._ip_login = ip_login
+        self._nome_usuario = nome_usuario
 
     @classmethod
     def from_dict(cls, data):
         test = lambda x: data[x]  # x in data and data[x] or None
         new_usr = (test('id_usuario'), test('email'), test('id_tipo_usuario'),
-                   test('logado'), test('ip_login'))
+                   test('logado'), test('ip_login'),test('nome_usuario'))
 
         return new_usr
 
@@ -115,7 +116,8 @@ class Usuario(SimpleItem):
             'email': self._email,
             'id_tipo_usuario': self._tipo_usuario,
             'logado': self._logado,
-            'ip_login': self._ip_login
+            'ip_login': self._ip_login,
+            'nome_usuario':self._nome_usuario
         }
 
         return data

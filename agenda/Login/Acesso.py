@@ -25,7 +25,7 @@ class Acesso(SimpleItem):
 
     def index_html(self):
         """exibe a pagina de login"""
-        return self.index_html()
+        return self._index_html()
 
     def verifica_dados_form(self, dados=None):
         """faz a verificacao dos dados inseridos no form de login"""
@@ -63,7 +63,10 @@ class Acesso(SimpleItem):
                     return self.prepara_erro({'erro': 'nao foi possivel'
                                               ' logar o usuario.'})
             else:
-                return self.prepara_erro({'erro': 'Usuario ja esta logado.'})
+                self.gravar_session(usuario=dados_user, hash_log=self.pwd.get_hash())
+
+                return self.login_success()
+                #return self.prepara_erro({'erro': 'Usuario ja esta logado.'})
         else:
             return self.prepara_erro({'erro': 'Usuario e/ou senha invalido'})
 
@@ -89,8 +92,8 @@ class Acesso(SimpleItem):
 
     def prepara_erro(self, dicionario):
         self.ui.set_on_request(dicionario=dicionario)
-        return self._erro()
+        return self._index_html()
 
-    index_html = DTMLFile('dtml/index', globals())
+    _index_html = DTMLFile('dtml/index', globals())
     login_box = DTMLFile('dtml/login_box', globals())
-    _erro = DTMLFile('dtml/error', globals())
+    _erro = DTMLFile('../dtml/error', globals())

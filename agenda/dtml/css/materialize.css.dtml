@@ -1,3 +1,4 @@
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/css')">
 /*!
  * Materialize v0.97.1 (http://materializecss.com)
  * Copyright 2014-2015 Materialize

@@ -1,9 +1,19 @@
+
+<dtml-var card_info_modal>
+
 <div class="col s12 m6 l2">
-	<div class="card-panel blue hoverable ">
+	<dtml-if "prioridade==3">
+		<div class="card-panel red hoverable ">
+		<dtml-elif "prioridade==2">
+			<div class="card-panel yellow darken-2 hoverable ">
+		<dtml-elif "prioridade==1">
+			<div class="card-panel green hoverable ">
+	</dtml-if>
+	
 		<!-- href=id unico do modal de info do card !-->
-		<a class="modal-trigger" href="#card">
+		<a class="modal-trigger" href="#cardinfo<dtml-var id_evento>">
 					
-			<span class="white-text"><<center><b>Titulo do card</b><br>Data</center>
+			<span class="white-text"><center><b><dtml-var titulo_evento></b><br>Entrega: <dtml-var data_fim></center>
 			</span>
 						
 		</a>
