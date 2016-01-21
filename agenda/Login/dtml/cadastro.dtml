@@ -1,0 +1,151 @@
+<dtml-var header>
+<main>
+    <div class="row">
+        <div class="col s12">
+            <div class="col offset-s3_1">
+                <div class="card-panel grey lighten-5">
+                    <h2 class="center-align">Cadastro</h2>
+                    <div class="row">
+                        <form class="col s12" method="post" action="/agenda/acesso/verifica_cadastro">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">person</i>
+                                    <input id="primeiro_nome" name="primeiro_nome" type="text" class="validate">
+                                    <label for="primeiro_nome">Primeiro Nome:</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">person</i>
+                                    <input id="sobrenome" name="sobrenome" type="text" class="validate">
+                                    <label for="sobrenome">Sobrenome:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">email</i>
+                                    <input id="email" name="email" type="email" class="validate">
+                                    <label for="email">Email:</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">email</i>
+                                    <input id="conf_email" name="conf_email" type="email" class="validate" onblur="verifica_email();">
+                                    <label for="conf_email">Confirme o Email:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">vpn_key</i>
+                                    <input id="senha" name="senha" type="password" class="validate">
+                                    <label for="senha">Senha:</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">vpn_key</i>
+                                    <input id="conf_senha" name="conf_senha" type="password" class="validate" onblur="verifica_senha();">
+                                    <label for="conf_senha">Confirme a Senha:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <select name="sexo">
+                                        <option value="" disabled selected>Escolha uma opção</option>
+                                        <option value="1">Masculino</option>
+                                        <option value="2">Feminino</option>
+                                    </select>
+                                    <label>Sexo:</label>
+
+                                </div>
+                                <div class="col s6">
+                                    <label for="data_nasc">Data de Nascimento:</label>
+                                    <i class="material-icons left">date_range</i>
+                                    <input id="data_nasc" name="data_nasc" type="date" class="datepicker validate">
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="row">
+                                <div class="input-field col s9">
+                                    <i class="tiny material-icons prefix">location_on</i>
+                                    <input id="rua" name="rua" type="text" class="validate">
+                                    <label for="rua">Rua:</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <i class="tiny material-icons prefix">location_on</i>
+                                    <input id="numero" name="numero" type="number" class="validate">
+                                    <label for="numero">Número:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">location_on</i>
+                                    <input id="complemento" name="complemento" type="text" class="validate">
+                                    <label for="complemento">Complemento:</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="tiny material-icons prefix">location_on</i>
+                                    <input id="bairro" name="bairro" type="text" class="validate">
+                                    <label for="bairro">Bairro:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s9">
+                                    <i class="tiny material-icons prefix">location_on</i>
+                                    <input id="cidade" name="cidade" type="text" class="validate">
+                                    <label for="cidade">Cidade:</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <i class="tiny material-icons prefix">location_on</i>
+                                    <input id="uf" name="uf" type="text" class="validate" maxlength="2">
+                                    <label for="uf">UF:</label>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <br>
+                            <div class="row">
+                                <div class="col s6">
+                                    <div class="left-align">
+                                        <button class="btn waves-effect waves-light" type="submit" name="voltar">Cancelar
+                                            <i class="material-icons left">undo</i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col s6">
+                                    <div class="right-align">
+                                        <button class="btn waves-effect waves-light" type="submit" name="cadastrar">Finalizar
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function verifica_senha()
+        {
+            senha = document.getElementById("senha").value;
+            conf = document.getElementById("conf_senha").value
+            
+            if (senha != conf){
+                window.alert('A senha está diferente da confirmação!');
+                document.getElementById("senha").value = '';
+                document.getElementById("conf_senha").value = '';
+                document.getElementById("senha").focus();
+            };
+        }
+
+        function verifica_email()
+        {
+            email = document.getElementById("email").value;
+            conf = document.getElementById("conf_email").value
+            
+            if (email != conf){
+               window.alert('O e-mail está diferente da confirmação!');
+               document.getElementById("email").value = '';
+                document.getElementById("conf_email").value = '';
+                document.getElementById("email").focus();
+            };
+        }
+    </script>
+</main>
+<dtml-var footer>

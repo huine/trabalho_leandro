@@ -1,0 +1,59 @@
+
+<dtml-var header>
+
+
+<!-- modais necessarios para a pagina !-->
+
+<dtml-var add_lista_modal>
+
+<!-- para cada card de cada lista, um modal contendo as infos dele !-->
+
+<dtml-var card_info_modal>
+
+<!-- para cada lista, um modal para adicionar cards a lista !-->
+
+cc
+
+
+
+<main>
+
+	<br>
+
+	<div class="container">
+	  <div class="row">
+	    <div class="col s10 m11">
+	      	<ul class="tabs">
+		      	<!-- um <li> para cada lista existente href=id da lista !-->
+		        <li class="tab col s3"><a href="#test1">Lista 1 </a> </li>
+			</ul>
+	    </div>
+		<span class="s1">
+			<a class="btn-floating  waves-effect waves-light red modal-trigger" href="#add">
+				<i class="material-icons">add</i>
+			</a>
+		</span> 
+
+	  </div>
+	</div>
+
+ 
+
+
+<!--- LISTA -->
+<div class="row">
+	
+    <!-- um div para cada lista, contendo seus respectivos cards !-->
+    <div id="test1" class="col s12" > Lista 1 </div>
+
+    <dtml-var lista_div>
+    
+</div>
+
+
+
+<form name="teste" action="deslogar" method="post">
+    <input type="submit" value="deslogar">
+</form>
+
+<dtml-var footer>

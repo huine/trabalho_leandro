@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>electron</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<link href="style_css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="materialize_css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+<body>
+
+<div class="page-flexbox-wrapper">
+<header>
+  <ul id="dropdown1" class="dropdown-content">
+  <li><a href="">Perfil</a></li>
+  <li class="divider"></li>
+  <li><a href="" >Configurações</a></li>
+  <li class="divider"></li>
+  <li><a href="../agenda/logoff">Deslogar</a></li>
+</ul>
+
+  <nav class="green" role="navigation">
+    <div class="nav-wrapper container ">
+	
+		<a id="logo-container" href="#" class="brand-logo center">
+			<img class="valign" style="margin:10px;max-height:45px;" src="images/logo.png">
+		</a>
+    <dtml-if esta_logado>
+      <div class="col s6 valign-wrapper right">
+      <a class="hide-on-med-and-down" href="#!"><img src="images/profile.png" class="hide-on-med-and-downresponsive-img circle valign" style="max-height: 50px;"></a>
+        <ul class="right hide-on-med-and-down ">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1" data-constrainwidth="false" data-
+          beloworigin="true"><dtml-var user_name><i class="material-icons right">arrow_drop_down</i></a></li>
+        
+        </ul>
+      </div>
+        <ul id="nav-mobile" class="side-nav">
+        
+        <li class="valign-wrapper black-text" style="height: 100px;width:100%"> <img src="images/yuna.jpg" class="responsive-img circle valign" style="max-height: 60px;"><p><dtml-var user_name></p></a></li>
+        <li class="divider"></li>
+        <li><a href="">Minhas Listas</a></li>
+       
+         <li class="divider"></li>
+        <li ><a href="../agenda/logoff">Deslogar</a></li>
+        
+        </ul>
+  	  
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+   
+    <dtml-else>
+      <div class="col s6 valign-wrapper right">
+      <ul >
+        
+        
+        <li><a href="../login">Login</a></li>
+       </ul>
+      </div>
+    </dtml-if>
+  </nav>
+<br>
+</header>
