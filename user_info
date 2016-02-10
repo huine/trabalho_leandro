@@ -1,0 +1,17 @@
+CREATE TABLE info_usuarios
+(
+  id_info_usuario integer NOT NULL DEFAULT nextval('id_info_user_seq'::regclass),
+  id_usuario integer NOT NULL,
+  sexo integer NOT NULL,
+  dt_nascimento date NOT NULL,
+  uf character varying(2) NOT NULL,
+  cidade character varying(100) NOT NULL,
+  rua character varying(100) NOT NULL,
+  numero integer NOT NULL,
+  bairro character varying(100),
+  complemento character varying(100),
+  CONSTRAINT info_usuarios_pkey PRIMARY KEY (id_info_usuario)
+)
+WITH (
+  OIDS=FALSE
+);
